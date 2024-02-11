@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
+import Header from "@/components/Header"
+import Sidebar from "@/components/Sidebar";
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css";
 
-import Sidebar from "@/components/Sidebar";
 
-const inter = Inter({ subsets: ["latin"] });
-const interTight = Inter_Tight({subsets: ["cyrillic"]})
+const inter = Inter_Tight({subsets: ["latin"]})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,9 +20,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex h-screen w-screen items-center justify-between ${interTight.className}`}>
-        <Sidebar />
-        {children}
+      <body className={`flex h-screen w-screen ${inter.className}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Sidebar />
+          <main className="flex flex-col w-full h-screen">
+            <Header />
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
