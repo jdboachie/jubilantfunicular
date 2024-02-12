@@ -11,11 +11,11 @@ const Header = () => {
     <div
     className='w-full flex justify-between gap-4 p-4 border-b dark:border-b-neutral-800'
     >
-      <div className="">
-
+      <div className="font-bold font-mono px-8 py-0.5 text-neutral-500">
+        JuFu
       </div>
       <div className="flex items-center justify-center gap-2">
-        <div className="p-2">
+        <div className="px-2">
           <CommandDialogDemo />
         </div>
         <Button variant="outline" size="icon">

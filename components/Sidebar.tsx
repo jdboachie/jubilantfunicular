@@ -1,3 +1,5 @@
+'use client'
+
 import {
   UserIcon,
   InboxIcon,
@@ -7,24 +9,14 @@ import {
   LockClosedIcon,
   ChatBubbleBottomCenterTextIcon
 } from "@heroicons/react/24/outline"
-
 import UserItem from "./UserItem"
-
-
-import {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from "@/components/ui/command"
+import * as React from 'react'
+import { Calendar } from "./ui/calendar"
 
 
 const Sidebar = () => {
+
+  const [date, setDate] = React.useState<Date | undefined>(new Date())
 
   const menuList = [
     {
@@ -75,10 +67,12 @@ const Sidebar = () => {
   ]
 
   return (
-    <div className='flex flex-col w-[22%] min-w-[22%] p-4 gap-4 min-h-screen border-r dark:border-r-neutral-800'>
-      <UserItem />
-      <div className="grow">
-        <Command className="border dark:border-neutral-800">
+    <div className='flex flex-col w-fit min-w-[285px] gap-0 min-h-screen border-r dark:border-r-neutral-800'>
+      <div className="px-4 py-3 border-b dark:border-b-neutral-800">
+        <UserItem />
+      </div>
+      <div className="flex grow p-4 border-b dark:border-b-neutral-800">
+        {/* <Command className="border dark:border-neutral-800">
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
             {menuList.map((menu: any, key: number) => (
@@ -97,9 +91,15 @@ const Sidebar = () => {
               </>
             ))}
           </CommandList>
-        </Command>
+        </Command> */}
+        <Calendar
+          mode="default"
+          // selected={date}
+          today={date}
+          // onSelect={setDate}
+          />
       </div>
-      <div className="">
+      <div className="p-4">
         Settings/Notifications
       </div>
     </div>
