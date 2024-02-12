@@ -20,16 +20,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex h-screen w-screen ${inter.className}`}>
+      <body className={`flex flex-col h-screen w-screen ${inter.className}`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          // enableSystem
           disableTransitionOnChange
         >
-          <Sidebar />
-          <main className="flex flex-col w-full h-screen">
-            <Header />
+          <Header />
+          <main className="flex w-screen h-full">
+            <Sidebar />
             {children}
           </main>
         </ThemeProvider>

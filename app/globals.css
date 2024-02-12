@@ -2,18 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  max-height: 100%; /* Set a maximum height for the scrollable section */
+.scrollArea {
+  min-height: 100%; /* Set a maximum height for the scrollable section */
   overflow-y: auto;
   scrollbar-width: thin; /* Firefox */
-  scrollbar-color: transparent transparent; /* Firefox */
+  scrollbar-color: whitesmoke whitesmoke; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer and Edge */
 }
 
-*::-webkit-scrollbar {
+.scrollArea::-webkit-scrollbar {
   width: 6px; /* Width of the scrollbar */
 }
 
-*::-webkit-scrollbar-thumb {
+.scrollArea::-webkit-scrollbar-thumb {
   background-color: transparent; /* Color of the thumb */
 }

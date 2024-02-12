@@ -2,105 +2,68 @@
 
 import {
   UserIcon,
+  TrashIcon,
   InboxIcon,
-  CreditCardIcon,
+  HomeIcon,
   BellIcon,
-  CogIcon,
+  Cog8ToothIcon,
   LockClosedIcon,
+  RectangleGroupIcon,
   ChatBubbleBottomCenterTextIcon
 } from "@heroicons/react/24/outline"
 import UserItem from "./UserItem"
 import * as React from 'react'
 import { Calendar } from "./ui/calendar"
+import Link from 'next/link'
+import { buttonVariants } from "./ui/button"
+import { cn } from "@/lib/utils"
 
 
 const Sidebar = () => {
 
   const [date, setDate] = React.useState<Date | undefined>(new Date())
 
-  const menuList = [
-    {
-      group: "General",
-      items: [
-        {
-          link: "/",
-          icon: <UserIcon />,
-          text: "Profile"
-        },
-        {
-          link: "/",
-          icon: <InboxIcon />,
-          text: "Inbox"
-        },
-        {
-          link: "/",
-          icon: <CreditCardIcon />,
-          text: "Billing"
-        },
-        {
-          link: "/",
-          icon: <BellIcon />,
-          text: "Notifications"
-        },
-      ]
-    },
-    {
-      group: "Settings",
-      items: [
-        {
-          link: "/",
-          icon: <CogIcon />,
-          text: "General settings"
-        },
-        {
-          link: "/",
-          icon: <LockClosedIcon />,
-          text: "Privacy"
-        },
-        {
-          link: "/",
-          icon: <ChatBubbleBottomCenterTextIcon />,
-          text: "Logs"
-        },
-      ]
-    }
+  const links = [
+    { title: "Home", label: "", icon: HomeIcon, variant: "default" },
+    { title: "Dashboard", label: "9", icon: RectangleGroupIcon, variant: "ghost" },
+    { title: "Settings", label: "", icon: Cog8ToothIcon, variant: "ghost" },
+    { title: "Users", label: "", icon: UserIcon, variant: "ghost" },
+    { title: "Logout", label: "", icon: TrashIcon, variant: "ghost" },
   ]
 
   return (
-    <div className='flex flex-col w-fit min-w-[285px] gap-0 min-h-screen border-r dark:border-r-neutral-800'>
-      <div className="px-4 py-3 border-b dark:border-b-neutral-800">
-        <UserItem />
-      </div>
-      <div className="flex grow p-4 border-b dark:border-b-neutral-800">
-        {/* <Command className="border dark:border-neutral-800">
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            {menuList.map((menu: any, key: number) => (
-              <>
-              <CommandGroup
-                key={key}
-                heading={menu.group}
-                >
-                {menu.items.map((option: any, optionKey: any) => (
-                  <CommandItem key={optionKey} className="flex gap-2 cursor-pointer">
-                    <div className="h-4 w-4">{option.icon}</div>
-                    <span>{option.text}</span>
-                  </CommandItem>
-                ))}
-              </CommandGroup>
-              </>
-            ))}
-          </CommandList>
-        </Command> */}
-        <Calendar
-          mode="default"
-          // selected={date}
-          today={date}
-          // onSelect={setDate}
-          />
+    <div className='flex flex-col w-[300px] min-w-[300px] gap-0 h-full border-r dark:border-r-neutral-800'>
+      <div className="flex flex-col grow p-4 gap-1 border-b dark:border-b-neutral-800">
+      {links.map((link: any, index: any) => (
+          <Link
+          key={index}
+          href="#"
+          className={cn(
+            buttonVariants({ variant: link.variant, size: "sm" }),
+            link.variant === "default" &&
+            "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
+            "justify-start"
+          )}
+        >
+          <link.icon className="mr-2 h-4 w-4" />
+          {link.title}
+          {link.label && (
+            <span
+              className={cn(
+                "ml-auto",
+                link.variant === "secondary" &&
+                "text-black dark:text-white"
+              )}
+            >
+              {link.label}
+            </span>
+          )}
+        </Link>
+        )
+        )}
       </div>
       <div className="p-4">
-        Settings/Notifications
+        <Calendar/>
       </div>
     </div>
   )

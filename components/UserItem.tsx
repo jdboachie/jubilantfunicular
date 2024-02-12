@@ -12,7 +12,7 @@ const UserItem = () => {
           height={1000}
           className="avatar rounded-full w-10 h-10 text-white font-[700] flex items-center justify-center"
         />
-        <AvatarFallback>LC</AvatarFallback>
+        <AvatarFallback>KA</AvatarFallback>
       </Avatar>
       <div className="">
         <p className='text-sm font-semibold'>Kofi Asante</p>
