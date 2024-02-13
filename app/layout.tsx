@@ -9,8 +9,8 @@ import "./globals.css";
 const inter = Inter_Tight({subsets: ["latin"]})
 
 export const metadata: Metadata = {
-  title: "JuFu",
-  description: "Jubilant Funicular",
+  title: "Vclass",
+  description: "KNUST Virtual Classroom",
 };
 
 export default function RootLayout({
@@ -20,15 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex flex-col h-screen w-screen ${inter.className} overflow-x-hidden`}>
+      <body className={`flex flex-col h-screen w-screen ${inter.className} overflow-x-hidden bg-fixed`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          // enableSystem
+          enableSystem
           disableTransitionOnChange
         >
           <Header />
-          <main className="mt-[4.59rem] flex w-screen h-full">
+          <main className="mt-[70px] dark:bg-black flex w-screen h-full">
             <Sidebar />
             {children}
           </main>
