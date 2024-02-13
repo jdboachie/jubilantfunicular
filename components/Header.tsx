@@ -11,7 +11,7 @@ import UserItem from './UserItem'
 const Header = () => {
   return (
     <div
-    className='w-full flex justify-between gap-4 border-b dark:border-b-neutral-800'
+    className='z-50 w-full fixed bg-white dark:bg-neutral-900 flex justify-between gap-4 border-b dark:border-b-neutral-800'
     >
       <div className="border-r dark:border-r-neutral-800 p-4 w-[300px] min-w-[300px]">
         <UserItem />

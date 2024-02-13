@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`flex flex-col h-screen w-screen ${inter.className}`}>
+      <body className={`flex flex-col h-screen w-screen ${inter.className} overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -28,7 +28,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className="flex w-screen h-full">
+          <main className="mt-[4.59rem] flex w-screen h-full">
             <Sidebar />
             {children}
           </main>
