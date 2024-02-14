@@ -50,48 +50,10 @@
   }
 }
 
-
-body {
-  overflow-y: auto;
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: gray transparent; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
-}
-
-body {
-  background-color: #f9fafb;
-  background-image: linear-gradient(#e5e7eb 1px,#0000 0),linear-gradient(90deg,#e5e7eb 1px,#0000 0);
-  background-size: 20px 20px;
-}
-
 .tapbounce {
   @apply active:scale-95 transform duration-200 ease-in-out;
 }
 
 .scrollArea {
-  height: calc(100vh - 130px);
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: gray transparent; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
-}
-
-/* Webkit (Chrome, Safari, Opera) */
-.scrollArea::-webkit-scrollbar {
-  width: 6px; /* Width of the scrollbar */
-}
-
-.scrollArea::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Color of the thumb */
-  border-radius: 10px; /* Make the scrollbar thumb rounded */
-}
-
-/* Firefox */
-.scrollArea {
-  scrollbar-width: thin;
-  scrollbar-color: gray transparent;
-}
-
-/* IE and Edge */
-.scrollArea {
-  -ms-overflow-style: none;
+  height: calc(100vh - 70px);
 }

@@ -3,6 +3,7 @@ import { Inter_Tight } from "next/font/google";
 import Header from "@/components/Header"
 import Sidebar from "@/components/Sidebar";
 import { ThemeProvider } from "@/components/theme-provider"
+
 import "./globals.css";
 
 
@@ -23,12 +24,12 @@ export default function RootLayout({
       <body className={`flex flex-col h-screen w-screen ${inter.className} overflow-x-hidden bg-fixed`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
           <Header />
-          <main className="mt-[70px] dark:bg-black flex w-screen h-full">
+          <main className="mt-[70px] bg-neutral-50 dark:bg-black/5 flex w-screen h-fit min-h-[calc(100vh-70px)]">
             <Sidebar />
             {children}
           </main>
